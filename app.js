@@ -1,7 +1,8 @@
 const http = require('http');
 function handler(req, res) {
   const u = new URL(req.url, 'http://localhost');
-  const result = eval(u.searchParams.get('expr'));
+  const expr = u.searchParams.get('expr');
+  const result = eval(expr);
   res.end('result ' + result);
 }
 http.createServer(handler);
